@@ -1,71 +1,24 @@
-// MIXINS && VARIABLES
+@import "./normalize.css";
 
-@mixin basic-box-shadow($color) {
-  box-shadow: 3px 3px 5px 5px $color, 1px 0px 1px $color;
-}
-
-$main-color: blue;
-$accent-color: darken($main-color, 20%);
-$background-color: lighten($main-color, 40%);
-
-// LAYOUT
-
-body {
-  background-color: $background-color;
-  color: $main-color;
+.grid-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  margin-top: 150px;
+  gap: 0px;
+  align-content: flex-start;
+
 }
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.grid-cell {
+  box-sizing: border-box;
+  width: 33%;
+  height: 33%;
+  background-color: #7373a9;
+  border: solid 4px white;
 }
-
-// COMPONENTS
-.card {
-  background: white;
-  height: 50vh;
-  width: 50vw;
-  border-radius: 15px;
-  margin-top: 15px;
-  @include basic-box-shadow($accent-color);
-}
-
-.rando {
-  display: flex;
-  flex-direction: column;
-
-  btn {
-    height: 2em;
-    background: magenta;
-    color: white;
-    width: 10vmax;
-    text-align: center;
-    padding-top: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 20px;
-    line-height: 1.5;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  p {
-    font-family: Arial, Helvetica, sans-serif;
-    color: blueviolet;
-    font-weight: 500;
-    font-size: 5vmin;
-  }
-}
-
-.image-card {
-  background-image: url("../images/yoda-stitch.jpg");
-  background-position: center;
-}
-
-// TYPOGRAPHY
-h2 {
-  font-size: 3rem;
+.grid-cell.active {
+  background-color: #e7653b;
 }
