@@ -1,18 +1,20 @@
 # Nback-Javascript-Project
 
 ## Background
-* NBack is a memory training game that requires the player to remember a letter, number or color that was previously shown. A 2008 study by Jaeggi et al. showed that training in this way improved working memory in adult participants. This tool aims to replicate the tool used in this study.
+* NBack is a memory training game that requires the player to remember a letter, number or color that was previously shown. A 2008 study by Jaeggi et al. showed that training in this way improved working memory in adult participants. This tool aims to replicate the tool used in this study
 
-* The begginer level of the game (when N = 2) displays a single block on a 3 x 3 grid, gives the player several seconds to remember the block's position before showing a block in a different position on the grid. The player is instructed to press a "match" button when the new block's position matches the position of the block shown two iterations before. Once the user masters this, N increases to 3, and the level of challenge increases.
+* The begginer level of the game (when N = 2) displays a single block on a 3 x 3 grid, gives the player several seconds to remember the block's position before showing a block in a different position on the grid. The player is instructed to press a "match" button when the new block's position matches the position of the block shown two iterations before. Once the user masters this, N increases to 3, and the level of challenge increases
 
 
 ## Functionality and MVP
 
 * Player can start the game or cancel the current round 
 
-* Player can press a button on the screen to indicate the position of the block displayed 'N' iterations previous matches the position of the  currently displayed block
+* Player can press a button to indicate they believe position of the block displayed 'N' iterations previous matches the position of the  currently displayed block
 
-* Player can view their score, which the app will calculate based on the percentage of correct block selections for that round of gameplay
+* The iteration will be calculated as successful if the user appropriately clicks the "match" button before the currently displayed block disappears from view and another block position is displayed 
+
+* Player can view their score, which the app will calculated based on the percentage of correct match selections for that round of gameplay
 
 ## Wireframes
 <img src="https://docs.google.com/drawings/d/1QQpFN_7QqVLaUUMxo8xw_l3lWlXrX-a-9U7_DYv-17s/export/png"
@@ -21,7 +23,7 @@ alt="image alt text"/>
 
 
 ## Architecture and Technologies
-* This app will utilize Javasript for the logic of the game
+* This app will utilize Javascript for the logic of the game
 * HTML and CSS will be used for rendering and styling the main page as well as the gameplay instructions modal
 
 
@@ -36,4 +38,5 @@ alt="image alt text"/>
 
 ## Bonus features
 
-* Add a second stream of inputs to achieve "dual Nback", where the player must pay attention to both block position and color or shape of the "block" displayed
+* Add a second stream of inputs to allow players the option of playing "dual N-Back", where the player must pay attention to both block position and color or shape of the block displayed. This increases the level of difficulty. 
+* 
