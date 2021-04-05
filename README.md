@@ -15,7 +15,7 @@
 * Player can view their score, which the app will calculate based on the percentage of correct block selections for that round of gameplay
 
 ## Wireframes
-<img src="https://docs.google.com/drawings/d/1QQpFN_7QqVLaUUMxo8xw_l3lWlXrX-a-9U7_DYv-17s/edit?usp=sharing"
+<img src="https://docs.google.com/drawings/d/1QQpFN_7QqVLaUUMxo8xw_l3lWlXrX-a-9U7_DYv-17s/export/png"
 alt="image alt text"/>
 
 
