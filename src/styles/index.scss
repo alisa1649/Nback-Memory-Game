@@ -43,3 +43,64 @@ input[type="button"]:hover {
   border: 50px solid #008000cc;
   border-radius: 10px;
 }
+
+//==========================
+// Modal Styling
+//==========================
+.modal-screen {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1500;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.instructions-container {
+  margin-top: -350px;
+  background: #fff;
+  border-radius: 16px;
+  width: 440px;
+  height: 400px;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  animation: fadeIn ease .5s;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.instructions-modal {
+  background-color: #607d8bab;
+  border-radius: 8px;
+  display: flex;
+  color: #333;
+  font-weight: 400;
+  margin: 0 auto;
+  width: 100%;
+}
+.text {
+  padding: 25px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.modal-close {
+  background-color: #607D8B;
+  color: #fff;
+  width: 90px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 6px;
+
+}
+.modal-close:hover {
+  cursor: pointer;
+  box-sizing: border-box;
+}
