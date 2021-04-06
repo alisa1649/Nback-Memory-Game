@@ -1,5 +1,8 @@
 @import "./normalize.css";
+.main-page {
+  display: flex;
 
+}
 .grid-container {
   display: flex;
   flex-direction: row;
@@ -21,4 +24,18 @@
 }
 .grid-cell.active {
   background-color: #e7653b;
+}
+input[type="button"] {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 150px;
+  background-color: #e7653b;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  border-radius: 5px;
+}
+input[type="button"]:hover {
+  cursor: pointer;
 }
