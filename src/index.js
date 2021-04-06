@@ -13,23 +13,29 @@ function addActiveClass(gridIndex) {
   window.setTimeout(() => {
     active.className += " active"
     history.push(gridIndex);
-  }, 2000)
+  }, 1000)
 
 }
 
 
+
 window.setInterval(() => {
-  const gridIndex = Math.floor(Math.random() * 9);
+  const gridIndex = Math.floor(Math.random() * 2);
   addActiveClass(gridIndex)
-}, 3000)
+}, 2000)
 
 const button = document.querySelector("#match-button");
 button.addEventListener("click", () => {
-
+  const success = document.querySelector(".grid-container");
   if (history[history.length - 1] === history[history.length - 3]) {
     console.log("Match!")
     score += 2;
+    success.className += " correct";
+    window.setTimeout(() => {
+      success.classList.remove("correct")
+    }, 1000)
   }
+
 })
 
 
