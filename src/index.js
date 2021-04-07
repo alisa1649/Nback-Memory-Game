@@ -2,6 +2,7 @@ import "./styles/index.scss";
 let score = 0;
 let history = [];
 
+
 // =============================================
 // Game Grid Animation
 // =============================================
@@ -46,10 +47,26 @@ button.addEventListener("click", () => {
 // Instructions Modal Open and Close
 // =============================================
 
+let modal = document.querySelector(".modal");
+let show = document.querySelector(".how-to-play-button");
+let close = document.querySelector(".modal-close");
 
-// display none to modal close
-// click listener on modal screen and "close" button on modal to close
-//
+function toggleModal() {
+  modal.classList.toggle("show-modal");
+}
+function windowOnClick(event) {
+  if (event.target === modal || event.target === close) {
+    toggleModal();
+  }
+}
+
+show.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+
+
+
+
 
 
 
