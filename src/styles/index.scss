@@ -1,4 +1,13 @@
 @import "./normalize.css";
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  opacity: 0 !important;
+}
+
 .main-page {
   display: flex;
   -webkit-text-size-adjust: 100%;
@@ -13,6 +22,19 @@
   top: 0;
 
 }
+.countdown {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 200px;
+  font-weight: bold;
+  transform: translate3d(-50%, -50%, 0);
+  color: #fff;
+  transition: font-size 3s;
+}
+.countdown.smaller {
+  font-size: 30px;
+}
 .grid-container {
   display: flex;
   flex-direction: row;
@@ -21,13 +43,10 @@
   height: 600px;
   margin: auto;
   margin-top: 300px;
-  gap: 0px;
+  gap: 0;
   align-content: flex-start;
   position: relative;
   border-radius: 10px;
-  background-color: lightcyan;
-  box-shadow: 0px 1px 2px #e2e2e2;
-  border: solid 1px #e2e2e2;
 }
 .grid-canvas {
   background-image: url("../images/grid-canvas.jpg");
@@ -44,11 +63,12 @@
   height: 50px;
   width: 150px;
   border-radius: 30px;
-  //border: 6px solid #fff;
+  border: 6px solid #fff;
   justify-content: center;
   align-items: center;
   margin-right: 15px;
-  background-color: lightgray;
+  //background-color: lightgray;
+  font-size: 20px;
 }
 .how-to-play-button:hover {
   cursor: pointer;
@@ -58,11 +78,12 @@
   height: 50px;
   width: 150px;
   border-radius: 30px;
-  //border: 6px solid #fff;
+  border: 6px solid #fff;
   justify-content: center;
   align-items: center;
   margin-left: 15px;
-  background-color: lightgray;
+  //background-color: lightgray;
+  font-size: 20px;
 }
 .play-game-button:hover {
   cursor: pointer;
