@@ -1,4 +1,6 @@
 import "./styles/index.scss";
+require('file-loader?name=[name].[ext]!../index.html');
+
 let score = 0;
 let history = [];
 
