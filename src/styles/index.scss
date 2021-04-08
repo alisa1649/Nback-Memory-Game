@@ -146,6 +146,15 @@ body, html {
   padding: 20px;
   align-items: center;
   justify-content: space-between;
+  &:not(.success) {
+    transition: background-color .8s;
+  }
+  &.success {
+    background-color: #64c761;
+  }
+  &.fail {
+    background-color: #f00;
+  }
   .interaction-info-container {
     display: flex;
     gap: 20px;

@@ -35,17 +35,30 @@ function startGame() {
 // Player Input
 // =============================================
 
+const updateScore = (updateFn) => {
+  const current_score = parseInt($(".score-container-number").innerHTML);
+  $(".score-container-number").innerHTML = updateFn(current_score);
+};
+
 // Listen for match button click
-const button = document.querySelector("#match-button");
-button.addEventListener("click", () => {
-  const success = document.querySelector(".grid-container");
-  if (history[history.length - 1] === history[history.length - 3]) {
+$("#match-button").addEventListener("click", () => {
+  const isMatch = history[history.length - 1] === history[history.length - 3];
+
+
+  if (isMatch) {
     console.log("Match!")
-    score += 2;
-    success.className += " correct";
+    updateScore(currentScore => currentScore + 1);
+    $(".interaction-container").classList.add("success");
     window.setTimeout(() => {
-      success.classList.remove("correct")
-    }, 1000)
+      $(".interaction-container").classList.remove("success");
+    }, 100)
+  }
+  else {
+    updateScore(currentScore => currentScore - 1);
+    $(".interaction-container").classList.add("fail");
+    window.setTimeout(() => {
+      $(".interaction-container").classList.remove("fail");
+    }, 100)
   }
 })
 
