@@ -25,7 +25,7 @@ body, html {
   margin-top: 150px;
   display: flex;
   margin-top: 150px;
-  gap: 60px;
+  gap: 50px;
   margin-right: 50px;
   margin-left: 50px;
   justify-content: center;
@@ -33,7 +33,7 @@ body, html {
 }
 
 .doc-container {
-  max-width: 450px;
+  max-width: 250px;
   border: 5px solid black;
   padding: 25px;
   border-radius: 10px;
@@ -209,6 +209,7 @@ body, html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
 }
 .instructions-modal {
   background-color: #607d8bab;
@@ -218,6 +219,7 @@ body, html {
   font-weight: 400;
   margin: 0 auto;
   width: 100%;
+
 }
 .text {
   padding: 25px;
@@ -244,4 +246,6 @@ body, html {
   opacity: 1;
   visibility: visible;
   transform: scale(1.0);
+  transition: opacity 200ms ease-in;
+  backdrop-filter: blur(3px);
 }
