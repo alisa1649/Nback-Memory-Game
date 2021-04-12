@@ -14,6 +14,8 @@ let nextBlockInterval;
 let nextBlockTimeout;
 let nextCountdownTimeout;
 
+let recentlyMatched = false;
+
 // =============================================
 // Game Grid Animation
 // =============================================
@@ -25,13 +27,15 @@ function activateNextBlock() {
   }
   currentBlockIteration += 1;
 
-  const gridIndex = Math.floor(Math.random() * 2);
+  const gridIndex = Math.floor(Math.random() * 1);
   const previous = document.querySelector(".grid-cell.active")
   if (previous) {
     previous.classList.remove("active");
   }
   const active = document.querySelector(`.grid-cell-${gridIndex}`);
   nextBlockTimeout = window.setTimeout(() => {
+    checkForMissedMatch();
+    recentlyMatched = false;
     active.className += " active"
     history.push(gridIndex);
   }, 1000);
@@ -59,35 +63,61 @@ const updateScore = () => {
   $(".score-container-number").innerHTML = score;
 };
 
-// Listen for match button click
-$("#match-button").addEventListener("click", () => {
+function addToScore() {
+  score += 2;
+  updateScore();
+  $(".interaction-container").classList.add("success");
+  window.setTimeout(() => {
+    $(".interaction-container").classList.remove("success");
+  }, 100)
+}
+
+function deductFromScore() {
+  score -= 1;
+  updateScore();
+  $(".interaction-container").classList.add("fail");
+  window.setTimeout(() => {
+    $(".interaction-container").classList.remove("fail");
+  }, 100)
+}
+
+function checkIsMatch() {
   const matchLookback = nBackLevel + 1;
-  const isMatch = history[history.length - 1] === history[history.length - matchLookback];
+  const isEligible = history.length > nBackLevel;
+  const isMatch = (isEligible && history[history.length - 1] === history[history.length - matchLookback]);
   console.log("Most recent: " + history[history.length - 1]);
-  console.log("N Back: " + history[history.length - matchLookback]);
   console.log("isMatch: " + isMatch);
   console.log("history: " + history);
+  console.log("N Back Value: " + history[history.length - matchLookback]);
   console.log("matchLookback: " + (matchLookback));
   console.log("N Back Index: " + (history.length - matchLookback));
+  return isMatch;
+}
+
+// Listen for match button click
+function receiveMatchClick() {
+  recentlyMatched = true;
+  const isMatch = checkIsMatch();
 
 
   if (isMatch) {
     console.log("Match!")
-    score += 1;
-    updateScore();
-    $(".interaction-container").classList.add("success");
-    window.setTimeout(() => {
-      $(".interaction-container").classList.remove("success");
-    }, 100)
+    addToScore();
   }
   else {
-    updateScore(currentScore => currentScore - 1);
-    $(".interaction-container").classList.add("fail");
-    window.setTimeout(() => {
-      $(".interaction-container").classList.remove("fail");
-    }, 100)
+    deductFromScore();
   }
-})
+}
+
+function checkForMissedMatch() {
+  console.log("Checking for missed match...");
+  if (checkIsMatch() && !recentlyMatched) {
+    console.log("Deducting from score...");
+    deductFromScore();
+  }
+}
+
+$("#match-button").addEventListener("click", receiveMatchClick);
 
 // =============================================
 // Instructions Modal Open and Close
