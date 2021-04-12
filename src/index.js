@@ -5,28 +5,39 @@ let score = 0;
 let history = [];
 
 const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+let nextBlockInterval;
+let nextBlockTimeout;
+let nextCountdownTimeout;
 
 // =============================================
 // Game Grid Animation
 // =============================================
 
-function addActiveClass() {
+function activateNextBlock() {
   const gridIndex = Math.floor(Math.random() * 2);
   const previous = document.querySelector(".grid-cell.active")
   if (previous) {
     previous.classList.remove("active");
   }
   const active = document.querySelector(`.grid-cell-${gridIndex}`);
-  window.setTimeout(() => {
+  nextBlockTimeout = window.setTimeout(() => {
     active.className += " active"
     history.push(gridIndex);
-  }, 1000)
+  }, 1000);
+}
+
+function switchPlayButton() {
+  $('#play').classList.toggle('hidden');
+  $('#stop').classList.toggle('hidden');
 }
 
 function startGame() {
-  addActiveClass();
-  window.setInterval(() => {
-    addActiveClass();
+  score = 0;
+  activateNextBlock();
+  nextBlockInterval = window.setInterval(() => {
+    activateNextBlock();
   }, 2000)
 }
 
@@ -35,9 +46,8 @@ function startGame() {
 // Player Input
 // =============================================
 
-const updateScore = (updateFn) => {
-  const current_score = parseInt($(".score-container-number").innerHTML);
-  $(".score-container-number").innerHTML = updateFn(current_score);
+const updateScore = () => {
+  $(".score-container-number").innerHTML = score;
 };
 
 // Listen for match button click
@@ -47,7 +57,8 @@ $("#match-button").addEventListener("click", () => {
 
   if (isMatch) {
     console.log("Match!")
-    updateScore(currentScore => currentScore + 1);
+    score += 1;
+    updateScore();
     $(".interaction-container").classList.add("success");
     window.setTimeout(() => {
       $(".interaction-container").classList.remove("success");
@@ -83,10 +94,16 @@ show.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 // =============================================
-// Play Game Button Functionality
+// Game Stop Logic
 // =============================================
 
-const transitionTimeSeconds = 1.5;
+
+
+// =============================================
+// Play/Stop Game Button Functionality
+// =============================================
+
+const transitionTimeSeconds = 1;
 const shrinkCountdown = (newNum) => {
   $(".countdown").setAttribute("style", "transition: none");
   $(".countdown").classList.remove("smaller");
@@ -94,20 +111,43 @@ const shrinkCountdown = (newNum) => {
   window.setTimeout(() => {
     $(".countdown").setAttribute("style", `transition: font-size ${transitionTimeSeconds}s ease-in-out`);
     $(".countdown").classList.add("smaller");
-  }, 10);
+  }, 50);
 }
 
-$(".play-game-button").addEventListener("click", () => {
+const startCountdownAnimation = () => {
+  switchPlayButton();
+  $(".countdown").classList.remove("hidden");
   $(".grid-canvas").classList.add("hidden");
   shrinkCountdown(3);
-  window.setTimeout(() => {
+  nextCountdownTimeout = window.setTimeout(() => {
     shrinkCountdown(2);
-    window.setTimeout(() => {
+    nextCountdownTimeout = window.setTimeout(() => {
       shrinkCountdown(1);
-      window.setTimeout(() => {
+      nextCountdownTimeout = window.setTimeout(() => {
         $(".countdown").classList.add("hidden");
         startGame();
       }, transitionTimeSeconds * 1000)
     }, transitionTimeSeconds * 1000)
   }, transitionTimeSeconds * 1000)
-});
+}
+
+const stopGame = () => {
+  switchPlayButton();
+  $(".grid-canvas").classList.remove("hidden");
+  $(".countdown").classList.add("hidden");
+  score = 0;
+  updateScore();
+  window.clearInterval(nextBlockInterval);
+  window.clearTimeout(nextBlockTimeout);
+  window.clearTimeout(nextCountdownTimeout);
+
+  $$('.grid-cell').forEach(cell => {
+    cell.classList.remove('active');
+  })
+}
+
+$(".play-game-button").addEventListener("click", startCountdownAnimation);
+$("#play").addEventListener("click", startCountdownAnimation);
+
+
+$("#stop").addEventListener("click", stopGame);

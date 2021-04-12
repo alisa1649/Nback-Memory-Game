@@ -14,6 +14,8 @@ body, html {
   --color-5: #E9C46A;
 
   --orange: var(--color-3);
+  --green: var(--color-2);
+  --gray: var(--color-4);
 }
 
 
@@ -162,6 +164,12 @@ body, html {
   }
   &.fail {
     background-color: #f00;
+  }
+  .control {
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--gray);
+    &:hover { text-shadow: 0 0 2px #555 }
   }
   .interaction-info-container {
     display: flex;
