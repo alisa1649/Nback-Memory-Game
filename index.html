@@ -1,50 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <title>N-Back Memory Game</title>
   </head>
 
   <body>
-    <div class="modal">
-      <div class="instructions-container">
-        <div class="instructions-modal">
-          <div class="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod tristique mauris, sed vestibulum lacus porttitor a. Sed tempus, eros volutpat volutpat varius, arcu nunc dignissim neque, id vulputate ligula sem sed dolor. Integer felis nulla, porta at urna a, consequat sodales nisl. Fusce malesuada finibus ipsum vitae aliquam. Fusce sapien purus, pharetra vitae metus at, tincidunt semper urna. Ut fermentum tincidunt hendrerit. Nunc convallis, sem in malesuada pharetra, magna enim tincidunt dui, a dictum nulla ligula non metus. Curabitur blandit sodales eros, fermentum viverra justo accumsan sit amet. Duis pellentesque eget metus vitae imperdiet. Maecenas feugiat facilisis mauris, eu facilisis ex viverra feugiat.
+      <div class="navbar" id="NavBar">
+          <a href="#home" class="home active">N-Back Memory Game</a>
+          <a href="#news">Resume</a>
+          <a href="#about">LinkedIn</a>
+          <a href="#contact">More Projects on Github</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+          </a>
+      </div>
+
+        <div class="modal">
+          <div class="instructions-container">
+            <div class="instructions-modal">
+              <div class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod tristique mauris, sed vestibulum lacus porttitor a. Sed tempus, eros volutpat volutpat varius, arcu nunc dignissim neque, id vulputate ligula sem sed dolor. Integer felis nulla, porta at urna a, consequat sodales nisl. Fusce malesuada finibus ipsum vitae aliquam. Fusce sapien purus, pharetra vitae metus at, tincidunt semper urna. Ut fermentum tincidunt hendrerit. Nunc convallis, sem in malesuada pharetra, magna enim tincidunt dui, a dictum nulla ligula non metus. Curabitur blandit sodales eros, fermentum viverra justo accumsan sit amet. Duis pellentesque eget metus vitae imperdiet. Maecenas feugiat facilisis mauris, eu facilisis ex viverra feugiat.
+              </div>
+            </div>
+            <div class="modal-close">Close</div>
           </div>
         </div>
-        <div class="modal-close">Close</div>
-      </div>
-    </div>
-    <div class=main-page">
-      <div class="navbar"></div>
-      <div class="grid-container">
-          <div class="grid-canvas">
-            <div class="how-to-play-button">
-              <div class="play-text">How to Play</div>
+        <div class="main-page">
+            <div class="game-container">
+                <div class="grid-container">
+                    <div class="grid-canvas">
+                        <div class="grid-canvas-score">
+                        </div>
+                        <div class="intro-button how-to-play-button">
+                            <div class="play-text">How to Play</div>
+                        </div>
+                        <div class="intro-button play-game-button">
+                            <div class="play-text">Play Game!</div>
+                        </div>
+                    </div>
+                    <div class="countdown">
+                        <div class="countdown-text"></div>
+                    </div>
+                    <div class="grid-cell grid-cell-0"></div>
+                    <div class="grid-cell grid-cell-1"></div>
+                    <div class="grid-cell grid-cell-2"></div>
+                    <div class="grid-cell grid-cell-3"></div>
+                    <div class="grid-cell grid-cell-4"></div>
+                    <div class="grid-cell grid-cell-5"></div>
+                    <div class="grid-cell grid-cell-6"></div>
+                    <div class="grid-cell grid-cell-7"></div>
+                    <div class="grid-cell grid-cell-8"></div>
+                </div>
+                <div class="interaction-container">
+                    <div class="interaction-info-container">
+                        <i id="play" class="control fa fa-play"></i>
+                        <i id="stop" class="control fa fa-redo hidden"></i>
+                        <select class="n-size-container heading">
+                            <option>N = 1</option>
+                            <option selected>N = 2</option>
+                            <option>N = 3</option>
+                            <option>N = 4</option>
+                            <option>N = 5</option>
+                            <option>N = 6</option>
+                            <option>N = 7</option>
+                            <option>N = 8</option>
+                            <option>N = 9</option>
+                        </select>
+                        <div class="score-container heading">
+                            Score = <span class="score-container-number">0</span>
+                        </div>
+                    </div>
+                    <input type="button" class="game-button" id="match-button" value="Match!">
+                </div>
             </div>
-            <div class="play-game-button">
-              <div class="play-text">Play Game!</div>
+            <div class="doc-container">
+                <h2>Dual N-Back</h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
-          </div>
-          <div class="countdown">
-              <div class="countdown-text"></div>
-          </div>
-          <div class="grid-cell grid-cell-0"></div>
-          <div class="grid-cell grid-cell-1"></div>
-          <div class="grid-cell grid-cell-2"></div>
-          <div class="grid-cell grid-cell-3"></div>
-          <div class="grid-cell grid-cell-4"></div>
-          <div class="grid-cell grid-cell-5"></div>
-          <div class="grid-cell grid-cell-6"></div>
-          <div class="grid-cell grid-cell-7"></div>
-          <div class="grid-cell grid-cell-8"></div>
-      </div>
-      <input type="button" id="match-button" value="Match!">
-      <script src="./dist/main.js"></script>
-    </div>
+          <script src="./dist/main.js"></script>
+        <script>
+            function myFunction() {
+                const x = document.getElementById("NavBar");
+                if (x.className === "navbar") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "navbar";
+                }
+            }
+        </script>
+        </div>
   </body>
 </html>
