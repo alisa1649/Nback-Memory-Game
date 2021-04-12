@@ -139,8 +139,10 @@ body, html {
   border: 50px solid #008000cc;
   border-radius: 10px;
 }
-.interaction-container > * {
-  margin: auto;
+@media screen and (max-width: 500px) {
+  .interaction-container > * {
+    margin: auto;
+  }
 }
 .interaction-container {
   flex-wrap: wrap;
@@ -164,6 +166,7 @@ body, html {
   .interaction-info-container {
     display: flex;
     gap: 20px;
+    align-items: center;
     .heading {
       font-size: 24px;
       align-items: center;
