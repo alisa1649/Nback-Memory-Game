@@ -1,11 +1,12 @@
 import "./styles/index.scss";
 require('file-loader?name=[name].[ext]!../index.html');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 let score = 0;
 let history = [];
+let nBackLevel = parseInt($('.n-size-container').selectedOptions[0].value.split("=")[1]);
 
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 
 let nextBlockInterval;
 let nextBlockTimeout;
@@ -52,7 +53,14 @@ const updateScore = () => {
 
 // Listen for match button click
 $("#match-button").addEventListener("click", () => {
-  const isMatch = history[history.length - 1] === history[history.length - 3];
+  const matchLookback = nBackLevel + 1;
+  const isMatch = history[history.length - 1] === history[history.length - matchLookback];
+  console.log("Most recent: " + history[history.length - 1]);
+  console.log("N Back: " + history[history.length - matchLookback]);
+  console.log("isMatch: " + isMatch);
+  console.log("history: " + history);
+  console.log("matchLookback: " + (matchLookback));
+  console.log("N Back Index: " + (history.length - matchLookback));
 
 
   if (isMatch) {
@@ -92,12 +100,6 @@ function windowOnClick(event) {
 
 show.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
-
-// =============================================
-// Game Stop Logic
-// =============================================
-
-
 
 // =============================================
 // Play/Stop Game Button Functionality
@@ -148,6 +150,14 @@ const stopGame = () => {
 
 $(".play-game-button").addEventListener("click", startCountdownAnimation);
 $("#play").addEventListener("click", startCountdownAnimation);
-
-
 $("#stop").addEventListener("click", stopGame);
+
+// =============================================
+// Game Setup
+// =============================================
+
+function updateNBackLevel() {
+  nBackLevel = parseInt($('.n-size-container').selectedOptions[0].value.split("=")[1]);
+}
+
+$(".n-size-container").addEventListener("change", updateNBackLevel);
