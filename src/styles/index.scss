@@ -201,6 +201,10 @@ body, html {
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    border-color: transparent;
+    &:hover {
+      filter: brightness(1.1);
+    }
   }
 }
 //==========================
@@ -225,8 +229,10 @@ body, html {
   margin-top: 50px;
   background: #fff;
   border-radius: 16px;
-  width: 440px;
-  height: 400px;
+  width: 100vw;
+  max-width: 600px;
+  height: 50vh;
+  max-height: 500px;
   padding: 30px;
   position: relative;
   display: flex;
@@ -235,37 +241,38 @@ body, html {
   justify-content: space-between;
   align-items: center;
 
-}
-.instructions-modal {
-  background-color: #607d8bab;
-  border-radius: 8px;
-  display: flex;
-  color: #333;
-  font-weight: 400;
-  margin: 0 auto;
-  width: 100%;
+  .instructions-modal {
+    background-color: #607d8bab;
+    border-radius: 8px;
+    display: flex;
+    color: #333;
+    font-weight: 400;
+    width: 100%;
+    overflow-y: scroll;
+    margin: 0 auto 20px;
 
-}
-.text {
-  padding: 25px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.5;
-}
-.modal-close {
-  background-color: #607D8B;
-  color: #fff;
-  width: 90px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  border-radius: 6px;
-}
-.modal-close:hover {
-  cursor: pointer;
-  box-sizing: border-box;
+    .text {
+      padding: 25px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+  .modal-close {
+    background-color: #607D8B;
+    color: #fff;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .modal-close:hover {
+    box-shadow: 0 0 3px #333;
+  }
 }
 .show-modal {
   opacity: 1;
