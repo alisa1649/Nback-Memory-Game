@@ -3,7 +3,7 @@ require('file-loader?name=[name].[ext]!../index.html');
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const iterationsPerGame = 2;
+const iterationsPerGame = 20;
 
 let score = 0;
 let history = [];
@@ -142,6 +142,7 @@ const startCountdownAnimation = () => {
 }
 
 const stopGame = () => {
+  $('.grid-canvas-score').innerText = "Last Score: " + score;
   switchPlayButton();
   $(".grid-canvas").classList.remove("hidden");
   $(".countdown").classList.add("hidden");
