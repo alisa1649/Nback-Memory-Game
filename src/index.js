@@ -3,10 +3,12 @@ require('file-loader?name=[name].[ext]!../index.html');
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const iterationsPerGame = 2;
+
 let score = 0;
 let history = [];
 let nBackLevel = parseInt($('.n-size-container').selectedOptions[0].value.split("=")[1]);
-
+let currentBlockIteration = 0;
 
 let nextBlockInterval;
 let nextBlockTimeout;
@@ -17,6 +19,12 @@ let nextCountdownTimeout;
 // =============================================
 
 function activateNextBlock() {
+  if (currentBlockIteration >= iterationsPerGame) {
+    stopGame();
+    return;
+  }
+  currentBlockIteration += 1;
+
   const gridIndex = Math.floor(Math.random() * 2);
   const previous = document.querySelector(".grid-cell.active")
   if (previous) {
@@ -138,6 +146,7 @@ const stopGame = () => {
   $(".grid-canvas").classList.remove("hidden");
   $(".countdown").classList.add("hidden");
   score = 0;
+  currentBlockIteration = 0;
   updateScore();
   window.clearInterval(nextBlockInterval);
   window.clearTimeout(nextBlockTimeout);
@@ -158,6 +167,7 @@ $("#stop").addEventListener("click", stopGame);
 
 function updateNBackLevel() {
   nBackLevel = parseInt($('.n-size-container').selectedOptions[0].value.split("=")[1]);
+  console.log(nBackLevel);
 }
 
 $(".n-size-container").addEventListener("change", updateNBackLevel);

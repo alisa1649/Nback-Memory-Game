@@ -88,6 +88,14 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  .grid-canvas-score {
+    position: absolute;
+    top: 20%;
+    font-size: 44px;
+    color: white;
+    text-shadow: 0 0 7px black;
+    font-weight: bold;
+  }
 }
 .intro-button {
   display: flex;
