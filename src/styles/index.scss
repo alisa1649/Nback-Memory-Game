@@ -245,17 +245,22 @@ body, html {
     background-color: #607d8bab;
     border-radius: 8px;
     display: flex;
-    color: #333;
+    color: #292f31;
     font-weight: 400;
     width: 100%;
     overflow-y: scroll;
     margin: 0 auto 20px;
-
-    .text {
-      padding: 25px;
-      text-align: center;
+    li:not(:first-child) {
+      list-style: disc;
+      padding: 10px;
+      text-align: left;
       font-size: 18px;
-      line-height: 1.5;
+    }
+    li:first-child {
+      text-align: center;
+      font-size: 24px;
+      list-style: none;
+      font-weight: 600;
     }
   }
   .modal-close {
