@@ -15,6 +15,7 @@ let nextBlockTimeout;
 let nextCountdownTimeout;
 
 let recentlyMatched = false;
+let gameInProgress = false;
 
 // =============================================
 // Game Grid Animation
@@ -43,17 +44,19 @@ function activateNextBlock() {
 
 function switchPlayButton() {
   $('#play').classList.toggle('hidden');
+  $('#play-text').classList.toggle('hidden');
   $('#stop').classList.toggle('hidden');
+  $('#stop-text').classList.toggle('hidden');
 }
 
 function startGame() {
+  gameInProgress = true;
   score = 0;
   activateNextBlock();
   nextBlockInterval = window.setInterval(() => {
     activateNextBlock();
   }, 2000)
 }
-
 
 // =============================================
 // Player Input
@@ -104,9 +107,10 @@ function receiveMatchClick() {
     console.log("Match!")
     addToScore();
   }
-  else {
+  else if (!isMatch && gameInProgress) {
     deductFromScore();
   }
+  console.log("GAME STARTED?" + (gameInProgress));
 }
 
 function checkForMissedMatch() {
@@ -186,6 +190,7 @@ const stopGame = () => {
   $$('.grid-cell').forEach(cell => {
     cell.classList.remove('active');
   })
+  gameInProgress = false;
 }
 
 $(".play-game-button").addEventListener("click", startCountdownAnimation);
