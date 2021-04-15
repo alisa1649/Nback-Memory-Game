@@ -173,12 +173,20 @@ body, html {
   &.fail {
     background-color: #f00;
   }
-  .control {
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--gray);
-    &:hover { text-shadow: 0 0 2px #555 }
+  .play-button-container {
+    display: flex;
+    flex-direction: column;
   }
+    .control {
+      font-size: 30px;
+      cursor: pointer;
+      color: var(--gray);
+      padding-bottom: 5px;
+
+      &:hover {
+        text-shadow: 0 0 2px #555
+      }
+    }
   .interaction-info-container {
     display: flex;
     gap: 20px;

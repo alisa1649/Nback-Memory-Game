@@ -69,8 +69,12 @@
                 </div>
                 <div class="interaction-container">
                     <div class="interaction-info-container">
-                        <i id="play" class="control fa fa-play"></i>
-                        <i id="stop" class="control fa fa-redo hidden"></i>
+                        <div class="play-button-container">
+                            <i id="play" class="control fa fa-play"></i>
+                            <i id="play-text" class="play-button-text">Play</i>
+                            <i id="stop" class="control fa fa-redo hidden"></i>
+                            <i id="stop-text" class="stop-button-text hidden">Restart Game</i>
+                        </div>
                         <select class="n-size-container heading">
                             <option>N = 1</option>
                             <option selected>N = 2</option>
@@ -90,8 +94,9 @@
                 </div>
             </div>
             <div class="doc-container">
-                <h2>Dual N-Back</h2>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <h2>N-Back</h2>
+                When played regularly, N-Back can improve your working memory! Choose the highest "N" level
+                you can achieve at least 30 points per game!
             </div>
           <script src="./dist/main.js"></script>
         <script>
