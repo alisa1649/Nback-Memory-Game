@@ -17,9 +17,9 @@
   <body>
       <div class="navbar" id="NavBar">
           <a href="#home" class="home active">N-Back Memory Game</a>
-          <a href="#news">Resume</a>
-          <a href="#about">LinkedIn</a>
-          <a href="#contact">More Projects on Github</a>
+          <a href="https://alisacheadle.com">Portfolio</a>
+          <a href="https://www.linkedin.com/in/alisa-cheadle-04a7811a7/">LinkedIn</a>
+          <a href="https://github.com/alisa1649?tab=repositories">More Projects on Github</a>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
           </a>
@@ -28,9 +28,15 @@
         <div class="modal">
           <div class="instructions-container">
             <div class="instructions-modal">
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod tristique mauris, sed vestibulum lacus porttitor a. Sed tempus, eros volutpat volutpat varius, arcu nunc dignissim neque, id vulputate ligula sem sed dolor. Integer felis nulla, porta at urna a, consequat sodales nisl. Fusce malesuada finibus ipsum vitae aliquam. Fusce sapien purus, pharetra vitae metus at, tincidunt semper urna. Ut fermentum tincidunt hendrerit. Nunc convallis, sem in malesuada pharetra, magna enim tincidunt dui, a dictum nulla ligula non metus. Curabitur blandit sodales eros, fermentum viverra justo accumsan sit amet. Duis pellentesque eget metus vitae imperdiet. Maecenas feugiat facilisis mauris, eu facilisis ex viverra feugiat.
-              </div>
+              <ul>
+                 <li>Ready to Play?</li>
+                  <br>
+                  <li>To get started, choose your N! The higher the number, the greater the challenge.</li>
+                  <li>Your goal is to correctly click the "match" button when the currently displayed
+                    block position matches the position of the block displayed "N" iterations previously.</li>
+                  <li>If you have a match, make sure to the click the match button before the next block is displayed!</li>
+                  <li>Don't get discouraged if you get tired or miss matches-memory training is challenging!</li>
+              </ul>
             </div>
             <div class="modal-close">Close</div>
           </div>
@@ -63,8 +69,12 @@
                 </div>
                 <div class="interaction-container">
                     <div class="interaction-info-container">
-                        <i id="play" class="control fa fa-play"></i>
-                        <i id="stop" class="control fa fa-redo hidden"></i>
+                        <div class="play-button-container">
+                            <i id="play" class="control fa fa-play"></i>
+                            <i id="play-text" class="play-button-text">Play</i>
+                            <i id="stop" class="control fa fa-redo hidden"></i>
+                            <i id="stop-text" class="stop-button-text hidden">Restart Game</i>
+                        </div>
                         <select class="n-size-container heading">
                             <option>N = 1</option>
                             <option selected>N = 2</option>
@@ -84,8 +94,9 @@
                 </div>
             </div>
             <div class="doc-container">
-                <h2>Dual N-Back</h2>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <h2>N-Back</h2>
+                When played regularly, N-Back can improve your working memory! Choose the highest "N" level
+                that you can achieve at least
             </div>
           <script src="./dist/main.js"></script>
         <script>
