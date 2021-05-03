@@ -28,7 +28,7 @@ function activateNextBlock() {
   }
   currentBlockIteration += 1;
 
-  const gridIndex = Math.floor(Math.random() * 1);
+  const gridIndex = Math.floor(Math.random() * 9);
   const previous = document.querySelector(".grid-cell.active")
   if (previous) {
     previous.classList.remove("active");
