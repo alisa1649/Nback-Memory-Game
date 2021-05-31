@@ -300,7 +300,7 @@ body, html {
 .navbar {
   display: flex;
   position: fixed;
-  min-height: 70px;
+  min-height: 90px;
   width: 100%;
   top: 0;
   overflow: hidden;
@@ -335,8 +335,9 @@ body, html {
 @media screen and (max-width: 600px) {
   .navbar a:not(:first-child) {display: none;}
   .navbar a.icon {
-    float: right;
     display: block;
+    right: 15px;
+    position: absolute;
   }
 }
 
